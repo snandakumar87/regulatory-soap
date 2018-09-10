@@ -7,14 +7,14 @@
 
 	<wsdl:types>
 		<xs:schema targetNamespace="http://javainuse.com">
-			<xs:element name="inputSOATest">
+			<xs:element name="complaintInput">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element type="xs:string" name="bankCode" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="outputSOATest">
+			<xs:element name="complaintOutput">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element type="xs:string" name="bankCode" />
@@ -30,25 +30,25 @@
 
 
 <!--Define input and output parameters -->
-	<wsdl:message name="inputSOATest">
-		<wsdl:part name="in" element="tns:inputSOATest" />
+	<wsdl:message name="complaintInput">
+		<wsdl:part name="in" element="tns:complaintInput" />
 	</wsdl:message>
-	<wsdl:message name="outputSOATest">
-		<wsdl:part name="out" element="tns:outputSOATest" />
+	<wsdl:message name="complaintOutput">
+		<wsdl:part name="out" element="tns:complaintOutput" />
 	</wsdl:message>
 
 <!--Define port definition -->
 	<wsdl:portType name="SOATestEndpoint">
-		<wsdl:operation name="SOATest">
-			<wsdl:input message="tns:inputSOATest" />
-			<wsdl:output message="tns:outputSOATest" />
+		<wsdl:operation name="complaintInfo">
+			<wsdl:input message="tns:complaintInput" />
+			<wsdl:output message="tns:complaintOutput" />
 		</wsdl:operation>
 	</wsdl:portType>
 
 <!--Bind Soap operation and service -->
 	<wsdl:binding name="SOATestBinding" type="tns:SOATestEndpoint">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-		<wsdl:operation name="SOATest">
+		<wsdl:operation name="complaintInfo">
 			<soap:operation soapAction="http://javainuse.com"
 				style="document" />
 			<wsdl:input>
